@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>错误</title>
+	</head>
+	<body>
+		<center id="stop">
+			
+		</center>
+		<script>
+			function gqv(variable){
+				var query = window.location.search.substring(1);
+				var vars = query.split("&");
+				for (var i=0;i<vars.length;i++) {
+					var pair = vars[i].split("=");
+					if(pair[0] == variable){return pair[1];}
+				}
+				return(false);
+			}
+			if(gqv('version') != false){
+				document.getElementById('stop').innerHTML += "<h1>由于效率问题，" + gqv('version') + "版已停止下载！</h1>"
+			}
+			else{
+				document.location = "index.html"
+			}
+		</script>
+	</body>
+</html>

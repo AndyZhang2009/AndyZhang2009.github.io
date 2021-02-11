@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<div id="title">
+			<title>下载中...</title>
+		</div>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			function gqv(variable){
+				var query = window.location.search.substring(1);
+				var vars = query.split("&");
+				for (var i=0;i<vars.length;i++) {
+					var pair = vars[i].split("=");
+					if(pair[0] == variable){return pair[1];}
+				}
+				return(false);
+			}
+			function sleep(ms, callback) {
+			    setTimeout(callback, ms)
+			}
+			if(gqv('10') == 'on'){
+				window.location.replace('files/10.jar')
+				sleep(1000,"window.location = 'index.html'")
+			}else{
+				if(gqv('11') == 'on'){
+					window.location.replace('files/11.jar')
+					sleep(1000,"window.location = 'index.html'")
+				}else{
+					if(gqv('12pre') == 'on'){
+						window.location.replace('stop_download.html?version=v1.2pre')
+					}else{
+						document.writeln('<center><h1>资源没有找到！</h1></center>')
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
